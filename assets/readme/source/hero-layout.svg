@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">oil-frontend</title>
-  <desc id="desc">给前端 Agent 使用的产品界面与代码规范。</desc>
+  <desc id="desc">从用户任务出发，修改产品前端真正出错的位置。</desc>
 
   <defs>
     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
@@ -20,23 +20,20 @@
     <circle cx="110" cy="65" r="210" fill="#FFFFFF" opacity=".72"/>
 
     <g font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif">
-      <rect x="66" y="50" width="214" height="34" rx="17" fill="#171917"/>
-      <text x="173" y="73" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1.6">CHINESE AGENT SKILL</text>
+      <text x="66" y="126" fill="#171917" font-size="72" font-weight="700" letter-spacing="-2.6">oil-frontend</text>
+      <rect x="64" y="149" width="526" height="18" rx="4" fill="#F3C95F" opacity=".9"/>
+      <text x="66" y="174" fill="#171917" font-size="30" font-weight="650">从用户任务出发，修改真正出错的位置</text>
 
-      <text x="66" y="162" fill="#171917" font-size="72" font-weight="700" letter-spacing="-2.6">oil-frontend</text>
-      <rect x="64" y="185" width="478" height="18" rx="4" fill="#F3C95F" opacity=".9"/>
-      <text x="66" y="210" fill="#171917" font-size="30" font-weight="650">给前端 Agent 使用的产品界面与代码规范</text>
+      <text x="66" y="228" fill="#4F534E" font-size="21" font-weight="430">删除无效内容，校准数据与状态，统一组件和代码归属。</text>
+      <text x="66" y="262" fill="#4F534E" font-size="21" font-weight="430">完成迁移以后，同时清理旧实现和失效样式。</text>
 
-      <text x="66" y="260" fill="#4F534E" font-size="21" font-weight="430">同时检查用户任务、数据状态、界面结构和代码归属。</text>
-      <text x="66" y="294" fill="#4F534E" font-size="21" font-weight="430">新实现接管以后，删除旧状态、旧样式和兼容分支。</text>
-
-      <g transform="translate(66 337)" font-size="17" font-weight="620">
+      <g transform="translate(66 309)" font-size="17" font-weight="620">
         <rect width="150" height="38" rx="19" fill="#FFFFFF" stroke="#CFCBC1" stroke-width="1.5"/>
-        <text x="75" y="25" fill="#343733" text-anchor="middle">任务与信息</text>
+        <text x="75" y="25" fill="#343733" text-anchor="middle">任务与对象</text>
         <rect x="162" width="150" height="38" rx="19" fill="#FFFFFF" stroke="#CFCBC1" stroke-width="1.5"/>
-        <text x="237" y="25" fill="#343733" text-anchor="middle">状态与数据</text>
+        <text x="237" y="25" fill="#343733" text-anchor="middle">状态与范围</text>
         <rect x="324" width="150" height="38" rx="19" fill="#FFFFFF" stroke="#CFCBC1" stroke-width="1.5"/>
-        <text x="399" y="25" fill="#343733" text-anchor="middle">组件与代码</text>
+        <text x="399" y="25" fill="#343733" text-anchor="middle">代码与清理</text>
       </g>
     </g>
 
