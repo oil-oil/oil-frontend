@@ -1,0 +1,76 @@
+{
+  "skill_name": "oil-frontend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "只读评审 apps/web/components/dashboard-workspace.tsx 及其直接使用的样式。用户反馈页面看起来层级扁平、信息拥挤，希望得到可以直接交给实现 Agent 的视觉修改方案。保留现有业务状态、数据流和项目 Token，不修改源码；报告读取了哪些 oil-frontend 参考文件。",
+      "expected_output": "以视觉工程为主要规则，给出具体元素、属性、项目依据和代码落点，不发明新的设计系统，不展开无障碍专项审计。",
+      "files": [],
+      "expectations": [
+        "将视觉工程规则作为主要参考，而不是因为 TSX 文件优先读取组件组织规则",
+        "每项建议包含具体元素、可修改属性和代码落点",
+        "优先复用项目 Token 和同类组件，没有依据时不发明精确值",
+        "不输出无障碍检查清单"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "只读评审 packages/ui/src/components/action-swap.tsx 和 packages/ui/src/lib/motion.ts。图标切换在用户快速连续点击时显得拖沓，偶尔停在中间状态。请给出可直接实现的修复方案，不修改源码；报告读取了哪些 oil-frontend 参考文件。",
+      "expected_output": "以动效与性能为主要规则，处理可中断性、属性选择、快速重复触发和清理；只有证据支持时才要求性能录制。",
+      "files": [],
+      "expectations": [
+        "将动效与性能规则作为主要参考",
+        "方案明确处理快速重复触发、中断和最终状态",
+        "方案明确动画属性、实现机制和卸载清理",
+        "不建议用 mode=wait 或逐次排队处理高频连续切换",
+        "不把普通动效自动升级为性能录制或全站无障碍审计"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "只读检查 packages/ui/src/components/card.tsx：假设当前任务只是修复 className 属性的 TypeScript 类型不匹配，明确要求渲染结果完全不变。请说明最小修改落点，不修改源码；报告读取了哪些 oil-frontend 参考文件。",
+      "expected_output": "只读取组件与代码组织规则，不因 className、组件或 CSS 相关词加载视觉工程或动效规则。",
+      "files": [],
+      "expectations": [
+        "只把组件与代码组织规则作为主要参考",
+        "不读取视觉工程或动效与性能规则",
+        "建议保持渲染结果和公共语义不变",
+        "修改范围限制在类型及其直接使用位置"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "styles/dashboard.css 的 import 路径拼错导致构建失败。只修正导入路径，不改变任何界面结果。请判断 oil-frontend 是否需要继续使用以及应读取哪些参考文件。",
+      "expected_output": "判断为不需要继续使用 oil-frontend，不读取视觉、动效或组件参考文件。",
+      "files": [],
+      "expectations": [
+        "明确判断不需要继续使用 oil-frontend",
+        "不读取任何参考文件",
+        "不把 CSS 关键词解释成视觉任务"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "列表首次加载时同时出现 skeleton 和 EmptyState，但数据集合与查询范围本身没有问题。请判断主要 oil-frontend 规则和是否需要补充规则，不修改源码。",
+      "expected_output": "只把状态与加载作为主要规则，不额外读取数据与操作范围规则。",
+      "files": [],
+      "expectations": [
+        "将状态与加载作为唯一主要规则",
+        "不读取数据与操作范围规则",
+        "不因 loading 关键词自动读取动效与性能规则"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "分别为三个独立请求选择 oil-frontend 的唯一主要规则，不实施修改：A. 把按钮边框和颜色改得与现有设计 Token 一致；B. 把三个页面重复的 CSS 拆到正确的共享组件并清理旧样式；C. 修复快速切换时 transition 排队和卡顿。说明每项是否需要补充规则。",
+      "expected_output": "A 路由到视觉工程，B 路由到组件与代码组织，C 路由到动效与性能；不能因为三项都有 CSS 就选择同一规则。",
+      "files": [],
+      "expectations": [
+        "A 的唯一主要规则是视觉工程",
+        "B 的唯一主要规则是组件与代码组织",
+        "C 的唯一主要规则是动效与性能",
+        "三项均不因 CSS 或 transition 关键词增加无关补充规则"
+      ]
+    }
+  ]
+}

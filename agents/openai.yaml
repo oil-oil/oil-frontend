@@ -1,4 +1,4 @@
 interface:
   display_name: "Oil Frontend"
-  short_description: "统一用户任务、数据状态、界面结构与前端代码归属"
-  default_prompt: "使用 $oil-frontend 审查这个产品前端的任务流程、数据来源、状态、界面结构和代码组织，并修复真正出错的位置。"
+  short_description: "统一产品任务、视觉动效、数据状态与前端代码归属"
+  default_prompt: "使用 $oil-frontend 审查这个产品前端的任务流程、视觉层级、动效、数据状态、界面结构和代码组织，只加载与当前问题直接相关的规则，并修复真正出错的位置。"
