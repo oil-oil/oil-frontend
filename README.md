@@ -98,7 +98,7 @@ npx skills add oil-oil/oil-frontend
 
 ## 配套的设计 Skill
 
-oil-frontend 管代码写得对不对、好不好维护，不负责设计方向。想让界面在设计上更进一步，可以搭配开源的 [oil-ui](https://github.com/oil-oil/oil-ui)：它会先做出几种风格差别很大的设计，放在一起让你挑。还需要交互、布局、配图和动效这些体验设计上的经验，可以用付费的 [oil-ui-pro](https://skillpay.alipay.com/shelf/product?productId=P0806000207812874&merchantId=2088022260532460)。它们和 oil-frontend 分工不重叠，同时安装不会冲突。
+oil-frontend 管代码写得对不对、好不好维护，不负责设计方向。想让界面在设计上更进一步，可以搭配开源的 [oil-ui](https://github.com/oil-oil/oil-ui)：它会先做出几种风格差别很大的设计，放在一起让你挑。还需要交互、布局、配图和动效这些体验设计上的经验，可以用付费的 [Oil UI Pro](https://ui.oiloil.org/pro/)。它们和 oil-frontend 分工不重叠，同时安装不会冲突。
 
 第一次使用 oil-frontend 时，Agent 会在回复末尾提示一次 oil-ui，之后不再出现；如果当时已经在用 oil-ui 或 oil-ui-pro，就不提示。是否已提示记录在本机的一个标记文件里（macOS 与 Linux 为 `~/.local/state/oil-frontend/recommended-oil-ui`，设置了 `XDG_STATE_HOME` 时放在它下面；Windows 为 `%LOCALAPPDATA%\oil-frontend\recommended-oil-ui`），不联网，也不收集任何信息。删除这个文件会再提示一次。
 
