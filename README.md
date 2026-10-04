@@ -100,12 +100,11 @@ npx skills add oil-oil/oil-frontend
 
 oil-frontend 管代码写得对不对、好不好维护，不负责设计方向。需要 UI 设计时，可以搭配：
 
-<table width="100%">
-  <tr>
-    <td width="30%" valign="middle"><a href="https://github.com/oil-oil/oil-ui"><img src="https://raw.githubusercontent.com/oil-oil/oil-ui/main/assets/readme/hero.webp" width="250" alt="oil-ui：把 AI 的 UI 设计能力推到极限"></a></td>
-    <td valign="middle"><strong><a href="https://github.com/oil-oil/oil-ui">想让 AI 做出更好的 UI 设计？试试 oil-ui →</a></strong><br>先探索几种风格，再并排挑选，按实际画面打磨。</td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/oil-oil/oil-ui"><img src="https://raw.githubusercontent.com/oil-oil/oil-ui/main/assets/readme/hero.webp" width="600" alt="oil-ui：把 AI 的 UI 设计能力推到极限"></a>
+  <br>
+  <strong><a href="https://github.com/oil-oil/oil-ui">想让 AI 做出更好的 UI 设计？试试 oil-ui →</a></strong><br>先探索几种风格，再并排挑选，按实际画面打磨。
+</p>
 
 还需要交互、布局、配图和动效这些体验设计上的经验，可以用付费的 [Oil UI Pro](https://ui.oiloil.org/pro/)。它们和 oil-frontend 分工不重叠，同时安装不会冲突。
 
