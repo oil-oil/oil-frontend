@@ -1,17 +1,16 @@
 ---
 name: oil-frontend
-description: 当任务需要实现、修改、重构或评审产品前端的可见界面、交互行为、前端状态与数据流、组件或样式组织时主动使用，无需用户点名；也用于这些前端行为的测试与验证策略。适用于页面、表单、列表、弹窗、响应式、样式与动效实现和前端代码归属调整。不用于视觉风格、配色、排版与设计方向这类设计判断，也不用于纯后端、构建部署、依赖升级、只修导入路径的机械改动、仅操作现有网站、仅生成设计图片或讨论本 Skill；用户明确要求不使用时不触发。
+description: 产品前端工程实现、重构与验证：组件与代码组织、Token 样式落地、数据流与异步竞态、弹层定位、动效性能与前端测试。产品前端开发或修前端工程问题时主动使用；不做视觉设计（交给 oil-ui）与交互流程设计（交给 oil-ux），不用于纯后端或构建部署。
 ---
 
 # Oil Frontend
 
-从用户任务和完成结果出发，修复真正出错的信息、交互、数据流、布局或共享实现。
+专注前端工程实现、数据流完整性、渲染性能与测试验证：把已确定的 UX 交互结构与视觉方向稳定、可维护地落进代码，不重复做视觉设计判断（交给 `oil-ui`），也不越权做交互流程与体验设计（交给 `oil-ux`）。
 
 ## 核心原则
 
-- 沿用用户对浏览、选择、编辑和提交的已有认知；可见内容服务于识别、判断、操作和结果反馈。
-- 同一业务数据有明确的权威来源，一个用户意图只执行一次；失败时保留对象、位置和已输入内容。
-- 优先使用项目已有的设计变量、组件和成熟能力；既有模式错误时修复源头。简单逻辑直接实现，不为少量代码引入依赖。
+- 遵循已确定的 UX 方案、设计规范或相邻同类模式；数据与状态有单一权威来源，失败时保留对象、位置和已输入内容。
+- 优先复用项目已有的设计变量、共享组件、Hook 与工具函数；既有实现错误时修复源头，不为少量逻辑引入新依赖。
 - 把用户时间、工具调用和上下文 Token 作为执行成本；在覆盖目标风险和必需门禁的前提下，按需取证、合并改动与验证，证据充分即停止。
 
 ## 修好问题，不顺手增加一套管理办法
@@ -33,23 +32,18 @@ description: 当任务需要实现、修改、重构或评审产品前端的可�
 
 | 当前任务 | 主要规则 | 仅在这些情况补充 |
 | --- | --- | --- |
-| 按设计稿、设计规范或现有 Token 修改样式，同类组件样式不一致，控件状态跳动，图标偏移 | [样式实现](references/style-implementation-contract.md) | 需要拆分或迁移共享样式、新增组件变体时读 [组件与代码组织](references/component-contract.md)；改变分栏、滚动或响应式结构时改读 [视口与弹窗](references/viewport-and-dialog-contract.md) 为主要规则；同时改变图标或动作含义时读 [信息与动作](references/information-and-action-contract.md) |
-| 动画、过渡、微交互、展开收起、拖拽反馈、滚动动效或卡顿 | [动效与性能](references/motion-performance-contract.md) | 根因是异步状态时改读 [状态与加载](references/state-and-loading-contract.md) 为主要规则 |
-| 前端测试策略、端到端方案设计、测试清理或检查规则调整 | [自动化](references/automation-contract.md) | 只有检查确实发现需要修复的业务问题时，才补充对应规则；仅运行已有检查不额外读取 |
-| 模块边界、组件、Hook、函数、类型、样式归属、共享样式、CSS 组织或共享实现 | [组件与代码组织](references/component-contract.md) | 需要为未覆盖风险设计检查，或清理脆弱、重复、失效检查时读 [自动化](references/automation-contract.md) |
-| 文案、动作层级、图标含义与必要性或点击反馈 | [信息与动作](references/information-and-action-contract.md) | 涉及对象身份、图片或选择器时读 [资源识别](references/resource-recognition-contract.md)；同时改变颜色、尺寸或对齐时读 [样式实现](references/style-implementation-contract.md) |
+| 模块边界、组件、Hook、函数、类型、样式归属、共享实现或旧代码清理 | [组件与代码组织](references/component-contract.md) | 同步调整 Token 落地时读 [样式实现](references/style-implementation-contract.md)；设计或清理长期测试时读 [自动化](references/automation-contract.md) |
+| 按设计稿、设计规范或现有 Token 修改样式，同类组件样式不一致或状态跳动 | [样式实现](references/style-implementation-contract.md) | 拆分共享样式或新增组件变体时读 [组件与代码组织](references/component-contract.md) |
+| 动画、过渡、微交互、拖拽反馈、滚动动效或动画卡顿 | [动效与性能](references/motion-performance-contract.md) | 根因是异步状态抖动时改读 [状态与加载](references/state-and-loading-contract.md) |
+| 前端测试策略、端到端方案设计、测试清理或检查规则调整 | [自动化](references/automation-contract.md) | 检查发现需修复的业务问题时补充对应规则 |
 
-数据、交互与空间：
+数据流、异步状态与弹层工程：
 
 | 当前任务 | 主要规则 | 仅在这些情况补充 |
 | --- | --- | --- |
-| 列表、卡片、详情、表格或批量操作 | [集合与详情](references/collection-and-detail-contract.md) | 涉及资源身份时读 [资源识别](references/resource-recognition-contract.md)；涉及编辑时读 [交互与编辑](references/interaction-and-editing-contract.md) |
-| 表单、选择、编辑或多步工作流 | [交互与编辑](references/interaction-and-editing-contract.md) | 涉及保存范围和流程连续性时读 [数据与操作范围](references/scope-and-state-integrity-contract.md) |
-| 查询结果、分页、候选集合、保存范围、批量范围或请求结果归属 | [数据与操作范围](references/scope-and-state-integrity-contract.md) | 同时改变 loading、refreshing、empty、error 或 processing 呈现时读 [状态与加载](references/state-and-loading-contract.md) |
-| loading、refreshing、empty、filtered-empty、error、queued、processing 或骨架 | [状态与加载](references/state-and-loading-contract.md) | 同时涉及查询快照、操作范围或保存结果归属时读 [数据与操作范围](references/scope-and-state-integrity-contract.md) |
-| 改变页面尺寸、分栏、滚动、弹窗结构或响应式行为 | [视口与弹窗](references/viewport-and-dialog-contract.md) | 涉及下拉、菜单、提示等依附触发器的浮层时读 [弹层](references/overlay-contract.md) |
-| 对象身份、图片或相邻资源区分 | [资源识别](references/resource-recognition-contract.md) | 需要改变集合结构或编辑流程时，补充对应规则 |
-| 下拉、菜单、日期面板、提示或依附触发器的浮层 | [弹层](references/overlay-contract.md) | 需要改变承载方式时读 [视口与弹窗](references/viewport-and-dialog-contract.md) |
+| 查询结果、分页与全量集合、请求竞态、保存范围、批量范围或读写一致 | [数据与操作范围](references/scope-and-state-integrity-contract.md) | 同步修改异步状态机时读 [状态与加载](references/state-and-loading-contract.md) |
+| 异步状态机：loading、refreshing、empty、filtered-empty、error、queued、processing | [状态与加载](references/state-and-loading-contract.md) | 涉及查询快照、操作范围或保存归属时读 [数据与操作范围](references/scope-and-state-integrity-contract.md) |
+| 下拉、菜单、日期面板、提示等依附触发器的浮层定位、防裁切、碰撞翻转与层级 | [弹层](references/overlay-contract.md) | 迁移共享弹层归属时读 [组件与代码组织](references/component-contract.md) |
 
 ## 执行流程
 
@@ -64,7 +58,7 @@ description: 当任务需要实现、修改、重构或评审产品前端的可�
 
 ### 2. 确定结构与修改落点
 
-- 根据识别、比较、选择或编辑任务确定必要内容和承载方式；删除重复信息与操作，不为完整感增加字段、步骤或装饰。
+- 交互结构、承载方式与视觉方向遵循已确定的 UX/设计方案或相邻同类模式，不越权发明新流程或视觉风格；若发现原模式本身有 UX 结构缺陷，先交由 `oil-ux` 或用户确认再实现。
 - 沿用项目已有的 Token、组件和相邻同类模式；样式修改须能落实到具体元素、属性和项目依据。设计稿和规范都没有给出的视觉决定，沿用相邻同类模式，不自行发明视觉方案。
 - 区分数据流、父布局、共享组件与调用方式的责任，修改真正出错的位置；按业务归属组织代码，只有职责和行为稳定复用时才抽象。
 - 必要动作缺少真实结果时补齐行为；无法提供的动作不伪装成可用。新实现接管后清理失效代码和引用，仍有真实兼容对象时明确保留原因与删除条件。
